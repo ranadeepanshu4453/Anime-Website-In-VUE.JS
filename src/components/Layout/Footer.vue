@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-black p-5 text-green-500 flex flex-col gap-5">
+    <div class="bg-black p-5 text-green-500 flex flex-col gap-5 border-t-2 grad">
         <p class="text-5xl w-fit p-1 rounded-md gradient-text">THINK<sup class="gradient-text">♾️<sup class="gradient-text">♾️</sup></sup></p>
         <div class="flex flex-col md:flex-row gap-5 justify-between">
             <span>
@@ -43,8 +43,8 @@
             </span>
         </div>
 
-        <hr class="border-0 h-1 bg-gradient-to-r from-green-400 to-blue-500">
-        <span class="flex flex-col md:flex-row justify-between text-center text-sm">
+        <div class="flex justify-center"><hr class="border-0 h-0.5 bg-gradient-to-r from-green-400 to-blue-500 w-1/2"></div>
+        <span class="flex flex-col md:flex-row justify-around text-center text-sm">
             <p>&copy; 2025 Think32. Rana Software Agency Uttar Pradesh, INDIA. All Rights Reserved.</p>
             <span class="flex flex-col md:flex-row gap-5">
                 <p><a href="#" class="hover:underline">Privacy Policy</a></p>
@@ -69,6 +69,9 @@ export default {
     background: linear-gradient(to right,#0000ff , #00ff00);
     -webkit-background-clip: text;
     color: transparent;
+}
+.grad{
+    border-image: linear-gradient(to right, blue, red) 1;
 }
 </style>
 

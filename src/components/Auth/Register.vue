@@ -10,20 +10,25 @@
     </span>
     <div class="h-screen flex flex-col justify-center items-center p-4 bg-slate-50" :class="{bright:changeClass}">
         <div class="bg-transparent flex flex-col md:flex-row h-auto md:h-96 rounded-lg w-full max-w-4xl">
-            <div class="bg-gray-900 md:w-1/2 h-48 md:h-full rounded-r-full p-5 flex justify-center items-center">
-                <router-link :to="{ name: 'home' }"><img ref="animeImage1" alt="Anime" src="../../assets/131.png"
-                        class="h-32 md:h-96 p-2 md:p-10 rounded-r-full"></router-link>
-            </div>
             <div class="flex flex-col items-center justify-center gap-3 w-full md:w-1/2 p-4">
-                <p class="text-3xl font-serif font-semibold text-center pt-4 md:pt-10">Log In</p>
-                <input type="email" placeholder="Email"
+                <p class="text-3xl font-serif font-semibold text-center pt-4 md:pt-10">Register</p>
+                <input type="text" placeholder="Enter Name"
                     class="bg-transparent border-b-2 border-black p-2 m-2 w-full md:w-96 focus:outline-none"
                     v-model="email" />
-                <input type="password" placeholder="Password"
+                    <input type="email" placeholder="Enter Email"
                     class="bg-transparent border-b-2 border-black p-2 m-2 w-full md:w-96 focus:outline-none"
+                    v-model="email" />
+                    <span class="flex justify-between">
+                         <input type="password" placeholder="Enter Password"
+                    class="bg-transparent border-b-2 border-black p-2 m-2 focus:outline-none"
                     v-model="password" />
-                <button class="p-3 bg-black text-white hover:scale-95 w-36" v-on:click="Credentials()">Log In</button>
-                <p>Don't have an account? <router-link :to="{ name: 'register' }" class="text-blue-500 no-underline">Register</router-link></p>
+                    <input type="password" placeholder="Confirm Password"
+                    class="bg-transparent border-b-2 border-black p-2 m-2 focus:outline-none"
+                    v-model="password" />
+                    </span>
+               
+                <button class="p-3 bg-black text-white hover:scale-95 w-36" v-on:click="Credentials()">Register</button>
+                <p>Already have an account? <router-link :to="{ name: 'login' }" class="text-blue-500 no-underline">Log In</router-link></p>
                 <div class="flex gap-6 justify-center items-center mt-4">
                     <svg class="w-6 h-6 hover:scale-110 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="16"
                         height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -59,27 +64,27 @@
                     </svg>
                 </div>
             </div>
+            <div class="bg-gray-900 md:w-1/2 h-48 md:h-full rounded-l-full p-5 flex justify-center items-center">
+                <router-link :to="{ name: 'home' }"><img ref="animeImage1" alt="Anime" src="../../assets/a1.png"
+                        class="h-32 md:h-96 p-2 md:p-10 rounded-r-full"></router-link>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'LogIn',
-    data() {
-        return {
+    name:'Register_Page',
+    date(){
+        return{
             email: '',
             password: '',
             changeClass:false,
         }
     },
-    methods: {
+    methods:{
         Credentials() {
-            if (this.email === 'Deepanshu' && this.password === '1234') {
-            this.$router.push({ name: 'dashboard' });
-            } else {
-            console.warn('Invalid credentials');
-            }
+            console.warn('Email:', this.email, 'Password:', this.password);
         },
         ChangeClass(){
             this.changeClass = !this.changeClass
@@ -87,6 +92,7 @@ export default {
     }
 }
 </script>
+
 
 <style scoped>
 .gradient {

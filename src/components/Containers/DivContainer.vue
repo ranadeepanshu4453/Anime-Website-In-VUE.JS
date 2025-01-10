@@ -53,6 +53,8 @@
         <span class="flex flex-col gap-5 justify-center items-center mt-7">
             Traversing Array of objects -><li v-for="item in arr1" :key='item'>{{'Name ->'+item.name }} {{ 'Email ->'+item.email }}</li>
         </span>
+        <span v-html="tag" class="flex flex-col gap-5 justify-center items-center mt-7"></span>
+       <div class="flex justify-center gap-5 items-center"><span :class="{testing:checkStatus}" class="p-2">Testing for Class Binding</span><button v-on:click="checkStatus = !checkStatus" class="border-2 p-2 bg-slate-400">Click to change class</button></div> 
     </div>
 </template>
 
@@ -90,7 +92,9 @@ export default {
             }, {
                 name: 'fourth',
                 email: 'xyz@gmail.com',
-            }]
+            }],
+            tag:"<h2><b>Testing for Tags</b></h2>",
+            checkStatus:true,
         }
     },
     methods: {
@@ -118,3 +122,9 @@ export default {
     }
 }
 </script>
+<style scoped>
+.testing{
+    background-color: blue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+</style>
