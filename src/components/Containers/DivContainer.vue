@@ -54,11 +54,13 @@
             Traversing Array of objects -><li v-for="item in arr1" :key='item'>{{'Name ->'+item.name }} {{ 'Email ->'+item.email }}</li>
         </span>
         <span v-html="tag" class="flex flex-col gap-5 justify-center items-center mt-7"></span>
-       <div class="flex justify-center gap-5 items-center"><span :class="{testing:checkStatus}" class="p-2">Testing for Class Binding</span><button v-on:click="checkStatus = !checkStatus" class="border-2 p-2 bg-slate-400">Click to change class</button></div> 
+       <div class="flex justify-center gap-5 items-center"><span :class="{testing:checkStatus}" class="p-2">Testing for Class Binding</span><button v-on:click="checkStatus = !checkStatus" class="border-2 p-2 bg-slate-400">Click to change class</button></div>
+        <Testing_Page />
     </div>
 </template>
 
 <script>
+import Testing_Page from './Testing.vue';
 export default {
     name: 'DivContainer',
     props:{
@@ -119,7 +121,11 @@ export default {
         changeStatus() {
             this.status = !this.status;
         }
+    },
+    components:{
+        Testing_Page,
     }
+
 }
 </script>
 <style scoped>
